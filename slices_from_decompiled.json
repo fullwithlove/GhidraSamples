@@ -1,0 +1,2139 @@
+{
+  "units": [
+    {
+      "unit_id": "6b5edfe9fe5d",
+      "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+      "slices": [
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "indirect_call",
+          "severity": "mid",
+          "start_line": 153,
+          "end_line": 193,
+          "decomp_slice": [
+            {
+              "lineno": 153,
+              "text": "  FID_conflict__memcpy(_Dst,_Src,_Size);"
+            },
+            {
+              "lineno": 154,
+              "text": "  VirtualFree(*(LPVOID *)(unaff_ESI + 4),0,0x8000);"
+            },
+            {
+              "lineno": 155,
+              "text": "  *(size_t *)(unaff_ESI + 8) = _Size + (int)_Dst;"
+            },
+            {
+              "lineno": 156,
+              "text": "  *(LPVOID *)(unaff_ESI + 4) = _Dst;"
+            },
+            {
+              "lineno": 157,
+              "text": "  *(uint *)(unaff_ESI + 0xc) = dwSize;"
+            },
+            {
+              "lineno": 158,
+              "text": "  return dwSize;"
+            },
+            {
+              "lineno": 159,
+              "text": "}"
+            },
+            {
+              "lineno": 160,
+              "text": ""
+            },
+            {
+              "lineno": 161,
+              "text": ""
+            },
+            {
+              "lineno": 162,
+              "text": ""
+            },
+            {
+              "lineno": 163,
+              "text": "/* Function: FUN_00401280 */"
+            },
+            {
+              "lineno": 164,
+              "text": ""
+            },
+            {
+              "lineno": 165,
+              "text": "void FUN_00401280(void)"
+            },
+            {
+              "lineno": 166,
+              "text": ""
+            },
+            {
+              "lineno": 167,
+              "text": "{"
+            },
+            {
+              "lineno": 168,
+              "text": "  code *pcVar1;"
+            },
+            {
+              "lineno": 169,
+              "text": "  undefined1 local_8 [4];"
+            },
+            {
+              "lineno": 170,
+              "text": "  "
+            },
+            {
+              "lineno": 171,
+              "text": "  __CxxThrowException_8(local_8,&DAT_00417e78);"
+            },
+            {
+              "lineno": 172,
+              "text": "  pcVar1 = (code *)swi(3);"
+            },
+            {
+              "lineno": 173,
+              "text": "  (*pcVar1)();"
+            },
+            {
+              "lineno": 174,
+              "text": "  return;"
+            },
+            {
+              "lineno": 175,
+              "text": "}"
+            },
+            {
+              "lineno": 176,
+              "text": ""
+            },
+            {
+              "lineno": 177,
+              "text": ""
+            },
+            {
+              "lineno": 178,
+              "text": ""
+            },
+            {
+              "lineno": 179,
+              "text": "/* Function: FUN_004012a0 */"
+            },
+            {
+              "lineno": 180,
+              "text": ""
+            },
+            {
+              "lineno": 181,
+              "text": "void FUN_004012a0(void)"
+            },
+            {
+              "lineno": 182,
+              "text": ""
+            },
+            {
+              "lineno": 183,
+              "text": "{"
+            },
+            {
+              "lineno": 184,
+              "text": "  LPCRITICAL_SECTION in_EAX;"
+            },
+            {
+              "lineno": 185,
+              "text": "  "
+            },
+            {
+              "lineno": 186,
+              "text": "  DeleteCriticalSection(in_EAX);"
+            },
+            {
+              "lineno": 187,
+              "text": "  return;"
+            },
+            {
+              "lineno": 188,
+              "text": "}"
+            },
+            {
+              "lineno": 189,
+              "text": ""
+            },
+            {
+              "lineno": 190,
+              "text": ""
+            },
+            {
+              "lineno": 191,
+              "text": ""
+            },
+            {
+              "lineno": 192,
+              "text": "/* Function: FUN_004012c0 */"
+            },
+            {
+              "lineno": 193,
+              "text": ""
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "code *pcVar1;\n  undefined1 local_8 [4];\n  \n  __CxxThrowException_8(local_8,&DAT_00417e78);\n  pcVar1 = (code *)swi(3);\n  (*pcVar1)();\n  return;\n}\n\n\n\n/* Function: FUN_004012a0 */\n\nvoid FUN_004012a0(void)\n\n{\n  LPCRITICAL_SECTION in_EAX;\n  \n  DeleteCriti"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "indirect_call",
+          "severity": "mid",
+          "start_line": 461,
+          "end_line": 501,
+          "decomp_slice": [
+            {
+              "lineno": 461,
+              "text": ""
+            },
+            {
+              "lineno": 462,
+              "text": ""
+            },
+            {
+              "lineno": 463,
+              "text": "/* Function: FUN_004015d0 */"
+            },
+            {
+              "lineno": 464,
+              "text": ""
+            },
+            {
+              "lineno": 465,
+              "text": "exception * __thiscall FUN_004015d0(void *this,exception *param_1)"
+            },
+            {
+              "lineno": 466,
+              "text": ""
+            },
+            {
+              "lineno": 467,
+              "text": "{"
+            },
+            {
+              "lineno": 468,
+              "text": "  std::exception::exception((exception *)this,param_1);"
+            },
+            {
+              "lineno": 469,
+              "text": "  *(undefined ***)this = std::bad_alloc::vftable;"
+            },
+            {
+              "lineno": 470,
+              "text": "  return (exception *)this;"
+            },
+            {
+              "lineno": 471,
+              "text": "}"
+            },
+            {
+              "lineno": 472,
+              "text": ""
+            },
+            {
+              "lineno": 473,
+              "text": ""
+            },
+            {
+              "lineno": 474,
+              "text": ""
+            },
+            {
+              "lineno": 475,
+              "text": "/* Function: FUN_004015f0 */"
+            },
+            {
+              "lineno": 476,
+              "text": ""
+            },
+            {
+              "lineno": 477,
+              "text": "void __fastcall FUN_004015f0(void *param_1)"
+            },
+            {
+              "lineno": 478,
+              "text": ""
+            },
+            {
+              "lineno": 479,
+              "text": "{"
+            },
+            {
+              "lineno": 480,
+              "text": "  if (DAT_0041bd8c != (code *)0x0) {"
+            },
+            {
+              "lineno": 481,
+              "text": "    (*DAT_0041bd8c)();"
+            },
+            {
+              "lineno": 482,
+              "text": "    return;"
+            },
+            {
+              "lineno": 483,
+              "text": "  }"
+            },
+            {
+              "lineno": 484,
+              "text": "  _free(param_1);"
+            },
+            {
+              "lineno": 485,
+              "text": "  return;"
+            },
+            {
+              "lineno": 486,
+              "text": "}"
+            },
+            {
+              "lineno": 487,
+              "text": ""
+            },
+            {
+              "lineno": 488,
+              "text": ""
+            },
+            {
+              "lineno": 489,
+              "text": ""
+            },
+            {
+              "lineno": 490,
+              "text": "/* Function: FUN_00401610 */"
+            },
+            {
+              "lineno": 491,
+              "text": ""
+            },
+            {
+              "lineno": 492,
+              "text": "void __cdecl FUN_00401610(uint param_1,char *param_2)"
+            },
+            {
+              "lineno": 493,
+              "text": ""
+            },
+            {
+              "lineno": 494,
+              "text": "{"
+            },
+            {
+              "lineno": 495,
+              "text": "  int unaff_ESI;"
+            },
+            {
+              "lineno": 496,
+              "text": "  char local_408 [1024];"
+            },
+            {
+              "lineno": 497,
+              "text": "  uint local_8;"
+            },
+            {
+              "lineno": 498,
+              "text": "  "
+            },
+            {
+              "lineno": 499,
+              "text": "  local_8 = DAT_004191b4 ^ (uint)&stack0xfffffffc;"
+            },
+            {
+              "lineno": 500,
+              "text": "  if (((*(uint *)(unaff_ESI + 200) & param_1) != 0) && (*(int *)(unaff_ESI + 0xd0) != 0)) {"
+            },
+            {
+              "lineno": 501,
+              "text": "    _vsprintf(local_408,param_2,&stack0x0000000c);"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "\n\n/* Function: FUN_004015f0 */\n\nvoid __fastcall FUN_004015f0(void *param_1)\n\n{\n  if (DAT_0041bd8c != (code *)0x0) {\n    (*DAT_0041bd8c)();\n    return;\n  }\n  _free(param_1);\n  return;\n}\n\n\n\n/* Function: FUN_00401610 */\n\nvoid __cdecl FUN_00401610(uint param_1"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "indirect_call",
+          "severity": "mid",
+          "start_line": 520,
+          "end_line": 560,
+          "decomp_slice": [
+            {
+              "lineno": 520,
+              "text": "  return 0;"
+            },
+            {
+              "lineno": 521,
+              "text": "}"
+            },
+            {
+              "lineno": 522,
+              "text": ""
+            },
+            {
+              "lineno": 523,
+              "text": ""
+            },
+            {
+              "lineno": 524,
+              "text": ""
+            },
+            {
+              "lineno": 525,
+              "text": "/* Function: FUN_004016a0 */"
+            },
+            {
+              "lineno": 526,
+              "text": ""
+            },
+            {
+              "lineno": 527,
+              "text": "undefined4 * __cdecl FUN_004016a0(undefined4 param_1,undefined4 param_2)"
+            },
+            {
+              "lineno": 528,
+              "text": ""
+            },
+            {
+              "lineno": 529,
+              "text": "{"
+            },
+            {
+              "lineno": 530,
+              "text": "  undefined4 *puVar1;"
+            },
+            {
+              "lineno": 531,
+              "text": "  undefined4 *_Memory;"
+            },
+            {
+              "lineno": 532,
+              "text": "  void *pvVar2;"
+            },
+            {
+              "lineno": 533,
+              "text": "  code *pcVar3;"
+            },
+            {
+              "lineno": 534,
+              "text": "  "
+            },
+            {
+              "lineno": 535,
+              "text": "  pcVar3 = DAT_0041bd88;"
+            },
+            {
+              "lineno": 536,
+              "text": "  if (DAT_0041bd88 == (code *)0x0) {"
+            },
+            {
+              "lineno": 537,
+              "text": "    _Memory = (undefined4 *)_malloc(0xd4);"
+            },
+            {
+              "lineno": 538,
+              "text": "  }"
+            },
+            {
+              "lineno": 539,
+              "text": "  else {"
+            },
+            {
+              "lineno": 540,
+              "text": "    _Memory = (undefined4 *)(*DAT_0041bd88)();"
+            },
+            {
+              "lineno": 541,
+              "text": "    pcVar3 = DAT_0041bd88;"
+            },
+            {
+              "lineno": 542,
+              "text": "  }"
+            },
+            {
+              "lineno": 543,
+              "text": "  if (_Memory != (undefined4 *)0x0) {"
+            },
+            {
+              "lineno": 544,
+              "text": "    *_Memory = param_1;"
+            },
+            {
+              "lineno": 545,
+              "text": "    _Memory[0x2c] = param_2;"
+            },
+            {
+              "lineno": 546,
+              "text": "    _Memory[4] = 0;"
+            },
+            {
+              "lineno": 547,
+              "text": "    _Memory[5] = 0;"
+            },
+            {
+              "lineno": 548,
+              "text": "    _Memory[6] = 0;"
+            },
+            {
+              "lineno": 549,
+              "text": "    _Memory[7] = 0;"
+            },
+            {
+              "lineno": 550,
+              "text": "    _Memory[8] = 0;"
+            },
+            {
+              "lineno": 551,
+              "text": "    _Memory[0x1d] = 0;"
+            },
+            {
+              "lineno": 552,
+              "text": "    _Memory[0x1e] = 0;"
+            },
+            {
+              "lineno": 553,
+              "text": "    _Memory[0xe] = 0x20;"
+            },
+            {
+              "lineno": 554,
+              "text": "    _Memory[0xf] = 0x80;"
+            },
+            {
+              "lineno": 555,
+              "text": "    _Memory[0x10] = 0x80;"
+            },
+            {
+              "lineno": 556,
+              "text": "    _Memory[0x11] = 0;"
+            },
+            {
+              "lineno": 557,
+              "text": "    _Memory[0x20] = 0;"
+            },
+            {
+              "lineno": 558,
+              "text": "    _Memory[0x12] = 0;"
+            },
+            {
+              "lineno": 559,
+              "text": "    _Memory[1] = 0x578;"
+            },
+            {
+              "lineno": 560,
+              "text": "    _Memory[2] = 0x560;"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": " if (DAT_0041bd88 == (code *)0x0) {\n    _Memory = (undefined4 *)_malloc(0xd4);\n  }\n  else {\n    _Memory = (undefined4 *)(*DAT_0041bd88)();\n    pcVar3 = DAT_0041bd88;\n  }\n  if (_Memory != (undefined4 *)0x0) {\n    *_Memory = param_1;\n    _Memory[0x2c] = para"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "indirect_call",
+          "severity": "mid",
+          "start_line": 546,
+          "end_line": 586,
+          "decomp_slice": [
+            {
+              "lineno": 546,
+              "text": "    _Memory[4] = 0;"
+            },
+            {
+              "lineno": 547,
+              "text": "    _Memory[5] = 0;"
+            },
+            {
+              "lineno": 548,
+              "text": "    _Memory[6] = 0;"
+            },
+            {
+              "lineno": 549,
+              "text": "    _Memory[7] = 0;"
+            },
+            {
+              "lineno": 550,
+              "text": "    _Memory[8] = 0;"
+            },
+            {
+              "lineno": 551,
+              "text": "    _Memory[0x1d] = 0;"
+            },
+            {
+              "lineno": 552,
+              "text": "    _Memory[0x1e] = 0;"
+            },
+            {
+              "lineno": 553,
+              "text": "    _Memory[0xe] = 0x20;"
+            },
+            {
+              "lineno": 554,
+              "text": "    _Memory[0xf] = 0x80;"
+            },
+            {
+              "lineno": 555,
+              "text": "    _Memory[0x10] = 0x80;"
+            },
+            {
+              "lineno": 556,
+              "text": "    _Memory[0x11] = 0;"
+            },
+            {
+              "lineno": 557,
+              "text": "    _Memory[0x20] = 0;"
+            },
+            {
+              "lineno": 558,
+              "text": "    _Memory[0x12] = 0;"
+            },
+            {
+              "lineno": 559,
+              "text": "    _Memory[1] = 0x578;"
+            },
+            {
+              "lineno": 560,
+              "text": "    _Memory[2] = 0x560;"
+            },
+            {
+              "lineno": 561,
+              "text": "    _Memory[0x31] = 0;"
+            },
+            {
+              "lineno": 562,
+              "text": "    if (pcVar3 == (code *)0x0) {"
+            },
+            {
+              "lineno": 563,
+              "text": "      pvVar2 = _malloc(0x10b0);"
+            },
+            {
+              "lineno": 564,
+              "text": "    }"
+            },
+            {
+              "lineno": 565,
+              "text": "    else {"
+            },
+            {
+              "lineno": 566,
+              "text": "      pvVar2 = (void *)(*pcVar3)();"
+            },
+            {
+              "lineno": 567,
+              "text": "    }"
+            },
+            {
+              "lineno": 568,
+              "text": "    _Memory[0x2d] = pvVar2;"
+            },
+            {
+              "lineno": 569,
+              "text": "    if (pvVar2 != (void *)0x0) {"
+            },
+            {
+              "lineno": 570,
+              "text": "      puVar1 = _Memory + 0x21;"
+            },
+            {
+              "lineno": 571,
+              "text": "      _Memory[0x22] = puVar1;"
+            },
+            {
+              "lineno": 572,
+              "text": "      *puVar1 = puVar1;"
+            },
+            {
+              "lineno": 573,
+              "text": "      puVar1 = _Memory + 0x23;"
+            },
+            {
+              "lineno": 574,
+              "text": "      _Memory[0x24] = puVar1;"
+            },
+            {
+              "lineno": 575,
+              "text": "      *puVar1 = puVar1;"
+            },
+            {
+              "lineno": 576,
+              "text": "      puVar1 = _Memory + 0x25;"
+            },
+            {
+              "lineno": 577,
+              "text": "      _Memory[0x26] = puVar1;"
+            },
+            {
+              "lineno": 578,
+              "text": "      *puVar1 = puVar1;"
+            },
+            {
+              "lineno": 579,
+              "text": "      puVar1 = _Memory + 0x27;"
+            },
+            {
+              "lineno": 580,
+              "text": "      _Memory[0x28] = puVar1;"
+            },
+            {
+              "lineno": 581,
+              "text": "      *puVar1 = puVar1;"
+            },
+            {
+              "lineno": 582,
+              "text": "      _Memory[0x17] = 0;"
+            },
+            {
+              "lineno": 583,
+              "text": "      _Memory[0x18] = 0;"
+            },
+            {
+              "lineno": 584,
+              "text": "      _Memory[0x19] = 0;"
+            },
+            {
+              "lineno": 585,
+              "text": "      _Memory[0x1a] = 0;"
+            },
+            {
+              "lineno": 586,
+              "text": "      _Memory[3] = 0;"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "ory[0x31] = 0;\n    if (pcVar3 == (code *)0x0) {\n      pvVar2 = _malloc(0x10b0);\n    }\n    else {\n      pvVar2 = (void *)(*pcVar3)();\n    }\n    _Memory[0x2d] = pvVar2;\n    if (pvVar2 != (void *)0x0) {\n      puVar1 = _Memory + 0x21;\n      _Memory[0x22]"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "indirect_call",
+          "severity": "mid",
+          "start_line": 591,
+          "end_line": 631,
+          "decomp_slice": [
+            {
+              "lineno": 591,
+              "text": "      _Memory[10] = 0;"
+            },
+            {
+              "lineno": 592,
+              "text": "      _Memory[0x13] = 0;"
+            },
+            {
+              "lineno": 593,
+              "text": "      _Memory[0x1b] = 0;"
+            },
+            {
+              "lineno": 594,
+              "text": "      _Memory[0x1c] = 0;"
+            },
+            {
+              "lineno": 595,
+              "text": "      _Memory[0x32] = 0;"
+            },
+            {
+              "lineno": 596,
+              "text": "      _Memory[0x2e] = 0;"
+            },
+            {
+              "lineno": 597,
+              "text": "      _Memory[0x30] = 0;"
+            },
+            {
+              "lineno": 598,
+              "text": "      _Memory[0x16] = 0;"
+            },
+            {
+              "lineno": 599,
+              "text": "      _Memory[0x33] = 0;"
+            },
+            {
+              "lineno": 600,
+              "text": "      _Memory[0x34] = 0;"
+            },
+            {
+              "lineno": 601,
+              "text": "      _Memory[0xd] = 100;"
+            },
+            {
+              "lineno": 602,
+              "text": "      _Memory[0x14] = 100;"
+            },
+            {
+              "lineno": 603,
+              "text": "      _Memory[0x15] = 100;"
+            },
+            {
+              "lineno": 604,
+              "text": "      _Memory[0xc] = 200;"
+            },
+            {
+              "lineno": 605,
+              "text": "      _Memory[9] = 2;"
+            },
+            {
+              "lineno": 606,
+              "text": "      _Memory[0x2f] = 5;"
+            },
+            {
+              "lineno": 607,
+              "text": "      _Memory[0x1f] = 0x14;"
+            },
+            {
+              "lineno": 608,
+              "text": "      return _Memory;"
+            },
+            {
+              "lineno": 609,
+              "text": "    }"
+            },
+            {
+              "lineno": 610,
+              "text": "    if (DAT_0041bd8c != (code *)0x0) {"
+            },
+            {
+              "lineno": 611,
+              "text": "      (*DAT_0041bd8c)();"
+            },
+            {
+              "lineno": 612,
+              "text": "      return (undefined4 *)0x0;"
+            },
+            {
+              "lineno": 613,
+              "text": "    }"
+            },
+            {
+              "lineno": 614,
+              "text": "    _free(_Memory);"
+            },
+            {
+              "lineno": 615,
+              "text": "  }"
+            },
+            {
+              "lineno": 616,
+              "text": "  return (undefined4 *)0x0;"
+            },
+            {
+              "lineno": 617,
+              "text": "}"
+            },
+            {
+              "lineno": 618,
+              "text": ""
+            },
+            {
+              "lineno": 619,
+              "text": ""
+            },
+            {
+              "lineno": 620,
+              "text": ""
+            },
+            {
+              "lineno": 621,
+              "text": "/* Function: FUN_00401830 */"
+            },
+            {
+              "lineno": 622,
+              "text": ""
+            },
+            {
+              "lineno": 623,
+              "text": "void __cdecl FUN_00401830(void *param_1)"
+            },
+            {
+              "lineno": 624,
+              "text": ""
+            },
+            {
+              "lineno": 625,
+              "text": "{"
+            },
+            {
+              "lineno": 626,
+              "text": "  undefined4 *puVar1;"
+            },
+            {
+              "lineno": 627,
+              "text": "  undefined4 *puVar2;"
+            },
+            {
+              "lineno": 628,
+              "text": "  int *piVar3;"
+            },
+            {
+              "lineno": 629,
+              "text": "  code *pcVar4;"
+            },
+            {
+              "lineno": 630,
+              "text": "  "
+            },
+            {
+              "lineno": 631,
+              "text": "  if (param_1 != (void *)0x0) {"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "_Memory[0x2f] = 5;\n      _Memory[0x1f] = 0x14;\n      return _Memory;\n    }\n    if (DAT_0041bd8c != (code *)0x0) {\n      (*DAT_0041bd8c)();\n      return (undefined4 *)0x0;\n    }\n    _free(_Memory);\n  }\n  return (undefined4 *)0x0;\n}\n\n\n\n/* Function: FUN_00401"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "indirect_call",
+          "severity": "mid",
+          "start_line": 626,
+          "end_line": 666,
+          "decomp_slice": [
+            {
+              "lineno": 626,
+              "text": "  undefined4 *puVar1;"
+            },
+            {
+              "lineno": 627,
+              "text": "  undefined4 *puVar2;"
+            },
+            {
+              "lineno": 628,
+              "text": "  int *piVar3;"
+            },
+            {
+              "lineno": 629,
+              "text": "  code *pcVar4;"
+            },
+            {
+              "lineno": 630,
+              "text": "  "
+            },
+            {
+              "lineno": 631,
+              "text": "  if (param_1 != (void *)0x0) {"
+            },
+            {
+              "lineno": 632,
+              "text": "    puVar1 = (undefined4 *)((int)param_1 + 0x94);"
+            },
+            {
+              "lineno": 633,
+              "text": "    puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 634,
+              "text": "    pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 635,
+              "text": "    while (puVar1 != puVar2) {"
+            },
+            {
+              "lineno": 636,
+              "text": "      piVar3 = (int *)*puVar1;"
+            },
+            {
+              "lineno": 637,
+              "text": "      *(int *)(*piVar3 + 4) = piVar3[1];"
+            },
+            {
+              "lineno": 638,
+              "text": "      *(int *)piVar3[1] = *piVar3;"
+            },
+            {
+              "lineno": 639,
+              "text": "      *piVar3 = 0;"
+            },
+            {
+              "lineno": 640,
+              "text": "      piVar3[1] = 0;"
+            },
+            {
+              "lineno": 641,
+              "text": "      if (pcVar4 == (code *)0x0) {"
+            },
+            {
+              "lineno": 642,
+              "text": "        _free(piVar3);"
+            },
+            {
+              "lineno": 643,
+              "text": "        pcVar4 = (code *)0x0;"
+            },
+            {
+              "lineno": 644,
+              "text": "      }"
+            },
+            {
+              "lineno": 645,
+              "text": "      else {"
+            },
+            {
+              "lineno": 646,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 647,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 648,
+              "text": "      }"
+            },
+            {
+              "lineno": 649,
+              "text": "      puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 650,
+              "text": "    }"
+            },
+            {
+              "lineno": 651,
+              "text": "    puVar1 = (undefined4 *)((int)param_1 + 0x9c);"
+            },
+            {
+              "lineno": 652,
+              "text": "    puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 653,
+              "text": "    while (puVar1 != puVar2) {"
+            },
+            {
+              "lineno": 654,
+              "text": "      piVar3 = (int *)*puVar1;"
+            },
+            {
+              "lineno": 655,
+              "text": "      *(int *)(*piVar3 + 4) = piVar3[1];"
+            },
+            {
+              "lineno": 656,
+              "text": "      *(int *)piVar3[1] = *piVar3;"
+            },
+            {
+              "lineno": 657,
+              "text": "      *piVar3 = 0;"
+            },
+            {
+              "lineno": 658,
+              "text": "      piVar3[1] = 0;"
+            },
+            {
+              "lineno": 659,
+              "text": "      if (pcVar4 == (code *)0x0) {"
+            },
+            {
+              "lineno": 660,
+              "text": "        _free(piVar3);"
+            },
+            {
+              "lineno": 661,
+              "text": "        pcVar4 = (code *)0x0;"
+            },
+            {
+              "lineno": 662,
+              "text": "      }"
+            },
+            {
+              "lineno": 663,
+              "text": "      else {"
+            },
+            {
+              "lineno": 664,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 665,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 666,
+              "text": "      }"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "0;\n      if (pcVar4 == (code *)0x0) {\n        _free(piVar3);\n        pcVar4 = (code *)0x0;\n      }\n      else {\n        (*pcVar4)();\n        pcVar4 = DAT_0041bd8c;\n      }\n      puVar2 = (undefined4 *)*puVar1;\n    }\n    puVar1 = (undefined4 *)((int)p"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "indirect_call",
+          "severity": "mid",
+          "start_line": 644,
+          "end_line": 684,
+          "decomp_slice": [
+            {
+              "lineno": 644,
+              "text": "      }"
+            },
+            {
+              "lineno": 645,
+              "text": "      else {"
+            },
+            {
+              "lineno": 646,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 647,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 648,
+              "text": "      }"
+            },
+            {
+              "lineno": 649,
+              "text": "      puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 650,
+              "text": "    }"
+            },
+            {
+              "lineno": 651,
+              "text": "    puVar1 = (undefined4 *)((int)param_1 + 0x9c);"
+            },
+            {
+              "lineno": 652,
+              "text": "    puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 653,
+              "text": "    while (puVar1 != puVar2) {"
+            },
+            {
+              "lineno": 654,
+              "text": "      piVar3 = (int *)*puVar1;"
+            },
+            {
+              "lineno": 655,
+              "text": "      *(int *)(*piVar3 + 4) = piVar3[1];"
+            },
+            {
+              "lineno": 656,
+              "text": "      *(int *)piVar3[1] = *piVar3;"
+            },
+            {
+              "lineno": 657,
+              "text": "      *piVar3 = 0;"
+            },
+            {
+              "lineno": 658,
+              "text": "      piVar3[1] = 0;"
+            },
+            {
+              "lineno": 659,
+              "text": "      if (pcVar4 == (code *)0x0) {"
+            },
+            {
+              "lineno": 660,
+              "text": "        _free(piVar3);"
+            },
+            {
+              "lineno": 661,
+              "text": "        pcVar4 = (code *)0x0;"
+            },
+            {
+              "lineno": 662,
+              "text": "      }"
+            },
+            {
+              "lineno": 663,
+              "text": "      else {"
+            },
+            {
+              "lineno": 664,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 665,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 666,
+              "text": "      }"
+            },
+            {
+              "lineno": 667,
+              "text": "      puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 668,
+              "text": "    }"
+            },
+            {
+              "lineno": 669,
+              "text": "    puVar1 = (undefined4 *)((int)param_1 + 0x84);"
+            },
+            {
+              "lineno": 670,
+              "text": "    puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 671,
+              "text": "    while (puVar1 != puVar2) {"
+            },
+            {
+              "lineno": 672,
+              "text": "      piVar3 = (int *)*puVar1;"
+            },
+            {
+              "lineno": 673,
+              "text": "      *(int *)(*piVar3 + 4) = piVar3[1];"
+            },
+            {
+              "lineno": 674,
+              "text": "      *(int *)piVar3[1] = *piVar3;"
+            },
+            {
+              "lineno": 675,
+              "text": "      *piVar3 = 0;"
+            },
+            {
+              "lineno": 676,
+              "text": "      piVar3[1] = 0;"
+            },
+            {
+              "lineno": 677,
+              "text": "      if (pcVar4 == (code *)0x0) {"
+            },
+            {
+              "lineno": 678,
+              "text": "        _free(piVar3);"
+            },
+            {
+              "lineno": 679,
+              "text": "        pcVar4 = (code *)0x0;"
+            },
+            {
+              "lineno": 680,
+              "text": "      }"
+            },
+            {
+              "lineno": 681,
+              "text": "      else {"
+            },
+            {
+              "lineno": 682,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 683,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 684,
+              "text": "      }"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "0;\n      if (pcVar4 == (code *)0x0) {\n        _free(piVar3);\n        pcVar4 = (code *)0x0;\n      }\n      else {\n        (*pcVar4)();\n        pcVar4 = DAT_0041bd8c;\n      }\n      puVar2 = (undefined4 *)*puVar1;\n    }\n    puVar1 = (undefined4 *)((int)p"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "indirect_call",
+          "severity": "mid",
+          "start_line": 662,
+          "end_line": 702,
+          "decomp_slice": [
+            {
+              "lineno": 662,
+              "text": "      }"
+            },
+            {
+              "lineno": 663,
+              "text": "      else {"
+            },
+            {
+              "lineno": 664,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 665,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 666,
+              "text": "      }"
+            },
+            {
+              "lineno": 667,
+              "text": "      puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 668,
+              "text": "    }"
+            },
+            {
+              "lineno": 669,
+              "text": "    puVar1 = (undefined4 *)((int)param_1 + 0x84);"
+            },
+            {
+              "lineno": 670,
+              "text": "    puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 671,
+              "text": "    while (puVar1 != puVar2) {"
+            },
+            {
+              "lineno": 672,
+              "text": "      piVar3 = (int *)*puVar1;"
+            },
+            {
+              "lineno": 673,
+              "text": "      *(int *)(*piVar3 + 4) = piVar3[1];"
+            },
+            {
+              "lineno": 674,
+              "text": "      *(int *)piVar3[1] = *piVar3;"
+            },
+            {
+              "lineno": 675,
+              "text": "      *piVar3 = 0;"
+            },
+            {
+              "lineno": 676,
+              "text": "      piVar3[1] = 0;"
+            },
+            {
+              "lineno": 677,
+              "text": "      if (pcVar4 == (code *)0x0) {"
+            },
+            {
+              "lineno": 678,
+              "text": "        _free(piVar3);"
+            },
+            {
+              "lineno": 679,
+              "text": "        pcVar4 = (code *)0x0;"
+            },
+            {
+              "lineno": 680,
+              "text": "      }"
+            },
+            {
+              "lineno": 681,
+              "text": "      else {"
+            },
+            {
+              "lineno": 682,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 683,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 684,
+              "text": "      }"
+            },
+            {
+              "lineno": 685,
+              "text": "      puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 686,
+              "text": "    }"
+            },
+            {
+              "lineno": 687,
+              "text": "    puVar1 = (undefined4 *)((int)param_1 + 0x8c);"
+            },
+            {
+              "lineno": 688,
+              "text": "    puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 689,
+              "text": "    while (puVar1 != puVar2) {"
+            },
+            {
+              "lineno": 690,
+              "text": "      piVar3 = (int *)*puVar1;"
+            },
+            {
+              "lineno": 691,
+              "text": "      *(int *)(*piVar3 + 4) = piVar3[1];"
+            },
+            {
+              "lineno": 692,
+              "text": "      *(int *)piVar3[1] = *piVar3;"
+            },
+            {
+              "lineno": 693,
+              "text": "      *piVar3 = 0;"
+            },
+            {
+              "lineno": 694,
+              "text": "      piVar3[1] = 0;"
+            },
+            {
+              "lineno": 695,
+              "text": "      if (pcVar4 == (code *)0x0) {"
+            },
+            {
+              "lineno": 696,
+              "text": "        _free(piVar3);"
+            },
+            {
+              "lineno": 697,
+              "text": "        pcVar4 = (code *)0x0;"
+            },
+            {
+              "lineno": 698,
+              "text": "      }"
+            },
+            {
+              "lineno": 699,
+              "text": "      else {"
+            },
+            {
+              "lineno": 700,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 701,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 702,
+              "text": "      }"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "0;\n      if (pcVar4 == (code *)0x0) {\n        _free(piVar3);\n        pcVar4 = (code *)0x0;\n      }\n      else {\n        (*pcVar4)();\n        pcVar4 = DAT_0041bd8c;\n      }\n      puVar2 = (undefined4 *)*puVar1;\n    }\n    puVar1 = (undefined4 *)((int)p"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "indirect_call",
+          "severity": "mid",
+          "start_line": 680,
+          "end_line": 720,
+          "decomp_slice": [
+            {
+              "lineno": 680,
+              "text": "      }"
+            },
+            {
+              "lineno": 681,
+              "text": "      else {"
+            },
+            {
+              "lineno": 682,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 683,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 684,
+              "text": "      }"
+            },
+            {
+              "lineno": 685,
+              "text": "      puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 686,
+              "text": "    }"
+            },
+            {
+              "lineno": 687,
+              "text": "    puVar1 = (undefined4 *)((int)param_1 + 0x8c);"
+            },
+            {
+              "lineno": 688,
+              "text": "    puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 689,
+              "text": "    while (puVar1 != puVar2) {"
+            },
+            {
+              "lineno": 690,
+              "text": "      piVar3 = (int *)*puVar1;"
+            },
+            {
+              "lineno": 691,
+              "text": "      *(int *)(*piVar3 + 4) = piVar3[1];"
+            },
+            {
+              "lineno": 692,
+              "text": "      *(int *)piVar3[1] = *piVar3;"
+            },
+            {
+              "lineno": 693,
+              "text": "      *piVar3 = 0;"
+            },
+            {
+              "lineno": 694,
+              "text": "      piVar3[1] = 0;"
+            },
+            {
+              "lineno": 695,
+              "text": "      if (pcVar4 == (code *)0x0) {"
+            },
+            {
+              "lineno": 696,
+              "text": "        _free(piVar3);"
+            },
+            {
+              "lineno": 697,
+              "text": "        pcVar4 = (code *)0x0;"
+            },
+            {
+              "lineno": 698,
+              "text": "      }"
+            },
+            {
+              "lineno": 699,
+              "text": "      else {"
+            },
+            {
+              "lineno": 700,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 701,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 702,
+              "text": "      }"
+            },
+            {
+              "lineno": 703,
+              "text": "      puVar2 = (undefined4 *)*puVar1;"
+            },
+            {
+              "lineno": 704,
+              "text": "    }"
+            },
+            {
+              "lineno": 705,
+              "text": "    if (*(void **)((int)param_1 + 0xb4) != (void *)0x0) {"
+            },
+            {
+              "lineno": 706,
+              "text": "      if (pcVar4 == (code *)0x0) {"
+            },
+            {
+              "lineno": 707,
+              "text": "        _free(*(void **)((int)param_1 + 0xb4));"
+            },
+            {
+              "lineno": 708,
+              "text": "      }"
+            },
+            {
+              "lineno": 709,
+              "text": "      else {"
+            },
+            {
+              "lineno": 710,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 711,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            },
+            {
+              "lineno": 712,
+              "text": "      }"
+            },
+            {
+              "lineno": 713,
+              "text": "    }"
+            },
+            {
+              "lineno": 714,
+              "text": "    if (*(void **)((int)param_1 + 0xa4) != (void *)0x0) {"
+            },
+            {
+              "lineno": 715,
+              "text": "      if (pcVar4 == (code *)0x0) {"
+            },
+            {
+              "lineno": 716,
+              "text": "        _free(*(void **)((int)param_1 + 0xa4));"
+            },
+            {
+              "lineno": 717,
+              "text": "      }"
+            },
+            {
+              "lineno": 718,
+              "text": "      else {"
+            },
+            {
+              "lineno": 719,
+              "text": "        (*pcVar4)();"
+            },
+            {
+              "lineno": 720,
+              "text": "        pcVar4 = DAT_0041bd8c;"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "0;\n      if (pcVar4 == (code *)0x0) {\n        _free(piVar3);\n        pcVar4 = (code *)0x0;\n      }\n      else {\n        (*pcVar4)();\n        pcVar4 = DAT_0041bd8c;\n      }\n      puVar2 = (undefined4 *)*puVar1;\n    }\n    if (*(void **)((int)param_1 + "
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "anti_debug",
+          "severity": "mid",
+          "start_line": 4868,
+          "end_line": 4908,
+          "decomp_slice": [
+            {
+              "lineno": 4868,
+              "text": "      FreeLibrary(hModule);"
+            },
+            {
+              "lineno": 4869,
+              "text": "      __security_check_cookie(local_8 ^ (uint)&stack0xfffffffc);"
+            },
+            {
+              "lineno": 4870,
+              "text": "      return;"
+            },
+            {
+              "lineno": 4871,
+              "text": "    }"
+            },
+            {
+              "lineno": 4872,
+              "text": "    FreeLibrary(hModule);"
+            },
+            {
+              "lineno": 4873,
+              "text": "  }"
+            },
+            {
+              "lineno": 4874,
+              "text": "  __security_check_cookie(local_8 ^ (uint)&stack0xfffffffc);"
+            },
+            {
+              "lineno": 4875,
+              "text": "  return;"
+            },
+            {
+              "lineno": 4876,
+              "text": "}"
+            },
+            {
+              "lineno": 4877,
+              "text": ""
+            },
+            {
+              "lineno": 4878,
+              "text": ""
+            },
+            {
+              "lineno": 4879,
+              "text": ""
+            },
+            {
+              "lineno": 4880,
+              "text": "/* Function: FUN_00406510 */"
+            },
+            {
+              "lineno": 4881,
+              "text": ""
+            },
+            {
+              "lineno": 4882,
+              "text": "undefined4 FUN_00406510(int param_1)"
+            },
+            {
+              "lineno": 4883,
+              "text": ""
+            },
+            {
+              "lineno": 4884,
+              "text": "{"
+            },
+            {
+              "lineno": 4885,
+              "text": "  BOOL BVar1;"
+            },
+            {
+              "lineno": 4886,
+              "text": "  undefined4 uVar2;"
+            },
+            {
+              "lineno": 4887,
+              "text": "  "
+            },
+            {
+              "lineno": 4888,
+              "text": "  BVar1 = IsDebuggerPresent();"
+            },
+            {
+              "lineno": 4889,
+              "text": "  if (BVar1 != 0) {"
+            },
+            {
+              "lineno": 4890,
+              "text": "    return 0;"
+            },
+            {
+              "lineno": 4891,
+              "text": "  }"
+            },
+            {
+              "lineno": 4892,
+              "text": "  uVar2 = FUN_00406390(param_1);"
+            },
+            {
+              "lineno": 4893,
+              "text": "  return uVar2;"
+            },
+            {
+              "lineno": 4894,
+              "text": "}"
+            },
+            {
+              "lineno": 4895,
+              "text": ""
+            },
+            {
+              "lineno": 4896,
+              "text": ""
+            },
+            {
+              "lineno": 4897,
+              "text": ""
+            },
+            {
+              "lineno": 4898,
+              "text": "/* Function: FUN_00406530 */"
+            },
+            {
+              "lineno": 4899,
+              "text": ""
+            },
+            {
+              "lineno": 4900,
+              "text": "undefined4 FUN_00406530(void)"
+            },
+            {
+              "lineno": 4901,
+              "text": ""
+            },
+            {
+              "lineno": 4902,
+              "text": "{"
+            },
+            {
+              "lineno": 4903,
+              "text": "  HWND hWnd;"
+            },
+            {
+              "lineno": 4904,
+              "text": "  DWORD idThread;"
+            },
+            {
+              "lineno": 4905,
+              "text": "  UINT Msg;"
+            },
+            {
+              "lineno": 4906,
+              "text": "  WPARAM wParam;"
+            },
+            {
+              "lineno": 4907,
+              "text": "  int nCmdShow;"
+            },
+            {
+              "lineno": 4908,
+              "text": "  LPARAM lParam;"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "\n\n\n/* Function: FUN_00406510 */\n\nundefined4 FUN_00406510(int param_1)\n\n{\n  BOOL BVar1;\n  undefined4 uVar2;\n  \n  BVar1 = IsDebuggerPresent();\n  if (BVar1 != 0) {\n    return 0;\n  }\n  uVar2 = FUN_00406390(param_1);\n  return uVar2;\n}\n\n\n\n/* Function: FUN_0040653"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "anti_debug",
+          "severity": "mid",
+          "start_line": 6970,
+          "end_line": 7010,
+          "decomp_slice": [
+            {
+              "lineno": 6970,
+              "text": "  _DAT_0041abe0 = 0x10001;"
+            },
+            {
+              "lineno": 6971,
+              "text": "  _DAT_0041ab88 = 0xc0000409;"
+            },
+            {
+              "lineno": 6972,
+              "text": "  _DAT_0041ab8c = 1;"
+            },
+            {
+              "lineno": 6973,
+              "text": "  local_32c = DAT_004191b4;"
+            },
+            {
+              "lineno": 6974,
+              "text": "  local_328 = DAT_004191b8;"
+            },
+            {
+              "lineno": 6975,
+              "text": "  _DAT_0041ab94 = unaff_retaddr;"
+            },
+            {
+              "lineno": 6976,
+              "text": "  _DAT_0041ac6c = in_GS;"
+            },
+            {
+              "lineno": 6977,
+              "text": "  _DAT_0041ac70 = in_FS;"
+            },
+            {
+              "lineno": 6978,
+              "text": "  _DAT_0041ac74 = in_ES;"
+            },
+            {
+              "lineno": 6979,
+              "text": "  _DAT_0041ac78 = in_DS;"
+            },
+            {
+              "lineno": 6980,
+              "text": "  _DAT_0041ac7c = unaff_EDI;"
+            },
+            {
+              "lineno": 6981,
+              "text": "  _DAT_0041ac80 = unaff_ESI;"
+            },
+            {
+              "lineno": 6982,
+              "text": "  _DAT_0041ac84 = unaff_EBX;"
+            },
+            {
+              "lineno": 6983,
+              "text": "  _DAT_0041ac88 = in_EDX;"
+            },
+            {
+              "lineno": 6984,
+              "text": "  _DAT_0041ac8c = in_ECX;"
+            },
+            {
+              "lineno": 6985,
+              "text": "  _DAT_0041ac90 = in_EAX;"
+            },
+            {
+              "lineno": 6986,
+              "text": "  _DAT_0041ac94 = unaff_EBP;"
+            },
+            {
+              "lineno": 6987,
+              "text": "  DAT_0041ac98 = unaff_retaddr;"
+            },
+            {
+              "lineno": 6988,
+              "text": "  _DAT_0041ac9c = in_CS;"
+            },
+            {
+              "lineno": 6989,
+              "text": "  _DAT_0041aca8 = in_SS;"
+            },
+            {
+              "lineno": 6990,
+              "text": "  DAT_0041abd8 = IsDebuggerPresent();"
+            },
+            {
+              "lineno": 6991,
+              "text": "  FUN_0040b622();"
+            },
+            {
+              "lineno": 6992,
+              "text": "  SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)0x0);"
+            },
+            {
+              "lineno": 6993,
+              "text": "  UnhandledExceptionFilter((_EXCEPTION_POINTERS *)&PTR_DAT_0041534c);"
+            },
+            {
+              "lineno": 6994,
+              "text": "  if (DAT_0041abd8 == 0) {"
+            },
+            {
+              "lineno": 6995,
+              "text": "    FUN_0040b622();"
+            },
+            {
+              "lineno": 6996,
+              "text": "  }"
+            },
+            {
+              "lineno": 6997,
+              "text": "  uExitCode = 0xc0000409;"
+            },
+            {
+              "lineno": 6998,
+              "text": "  hProcess = GetCurrentProcess();"
+            },
+            {
+              "lineno": 6999,
+              "text": "  TerminateProcess(hProcess,uExitCode);"
+            },
+            {
+              "lineno": 7000,
+              "text": "  return;"
+            },
+            {
+              "lineno": 7001,
+              "text": "}"
+            },
+            {
+              "lineno": 7002,
+              "text": ""
+            },
+            {
+              "lineno": 7003,
+              "text": ""
+            },
+            {
+              "lineno": 7004,
+              "text": ""
+            },
+            {
+              "lineno": 7005,
+              "text": "/* Function: FUN_00407a5f */"
+            },
+            {
+              "lineno": 7006,
+              "text": ""
+            },
+            {
+              "lineno": 7007,
+              "text": "undefined4 * __fastcall FUN_00407a5f(uint param_1)"
+            },
+            {
+              "lineno": 7008,
+              "text": ""
+            },
+            {
+              "lineno": 7009,
+              "text": "{"
+            },
+            {
+              "lineno": 7010,
+              "text": "  undefined4 uVar1;"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "041ac94 = unaff_EBP;\n  DAT_0041ac98 = unaff_retaddr;\n  _DAT_0041ac9c = in_CS;\n  _DAT_0041aca8 = in_SS;\n  DAT_0041abd8 = IsDebuggerPresent();\n  FUN_0040b622();\n  SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)0x0);\n  UnhandledExceptionFilter((_EXC"
+          }
+        },
+        {
+          "unit_id": "6b5edfe9fe5d",
+          "name": "347b5474c93b1bba28e78ddebd3387b88ebb4355188e877576cd3575193b31e9.c",
+          "trigger": "anti_debug",
+          "severity": "mid",
+          "start_line": 8128,
+          "end_line": 8168,
+          "decomp_slice": [
+            {
+              "lineno": 8128,
+              "text": ""
+            },
+            {
+              "lineno": 8129,
+              "text": "{"
+            },
+            {
+              "lineno": 8130,
+              "text": "  uint uVar1;"
+            },
+            {
+              "lineno": 8131,
+              "text": "  BOOL BVar2;"
+            },
+            {
+              "lineno": 8132,
+              "text": "  LONG LVar3;"
+            },
+            {
+              "lineno": 8133,
+              "text": "  _EXCEPTION_POINTERS local_32c;"
+            },
+            {
+              "lineno": 8134,
+              "text": "  EXCEPTION_RECORD local_324;"
+            },
+            {
+              "lineno": 8135,
+              "text": "  undefined4 local_2d4;"
+            },
+            {
+              "lineno": 8136,
+              "text": "  "
+            },
+            {
+              "lineno": 8137,
+              "text": "  uVar1 = DAT_004191b4 ^ (uint)&stack0xfffffffc;"
+            },
+            {
+              "lineno": 8138,
+              "text": "  if (nDbgHookCode != -1) {"
+            },
+            {
+              "lineno": 8139,
+              "text": "    FUN_0040b622();"
+            },
+            {
+              "lineno": 8140,
+              "text": "  }"
+            },
+            {
+              "lineno": 8141,
+              "text": "  local_324.ExceptionCode = 0;"
+            },
+            {
+              "lineno": 8142,
+              "text": "  _memset(&local_324.ExceptionFlags,0,0x4c);"
+            },
+            {
+              "lineno": 8143,
+              "text": "  local_32c.ExceptionRecord = &local_324;"
+            },
+            {
+              "lineno": 8144,
+              "text": "  local_32c.ContextRecord = (PCONTEXT)&local_2d4;"
+            },
+            {
+              "lineno": 8145,
+              "text": "  local_2d4 = 0x10001;"
+            },
+            {
+              "lineno": 8146,
+              "text": "  local_324.ExceptionCode = dwExceptionCode;"
+            },
+            {
+              "lineno": 8147,
+              "text": "  local_324.ExceptionFlags = dwExceptionFlags;"
+            },
+            {
+              "lineno": 8148,
+              "text": "  BVar2 = IsDebuggerPresent();"
+            },
+            {
+              "lineno": 8149,
+              "text": "  SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)0x0);"
+            },
+            {
+              "lineno": 8150,
+              "text": "  LVar3 = UnhandledExceptionFilter(&local_32c);"
+            },
+            {
+              "lineno": 8151,
+              "text": "  if (((LVar3 == 0) && (BVar2 == 0)) && (nDbgHookCode != -1)) {"
+            },
+            {
+              "lineno": 8152,
+              "text": "    FUN_0040b622();"
+            },
+            {
+              "lineno": 8153,
+              "text": "  }"
+            },
+            {
+              "lineno": 8154,
+              "text": "  __security_check_cookie(uVar1 ^ (uint)&stack0xfffffffc);"
+            },
+            {
+              "lineno": 8155,
+              "text": "  return;"
+            },
+            {
+              "lineno": 8156,
+              "text": "}"
+            },
+            {
+              "lineno": 8157,
+              "text": ""
+            },
+            {
+              "lineno": 8158,
+              "text": ""
+            },
+            {
+              "lineno": 8159,
+              "text": ""
+            },
+            {
+              "lineno": 8160,
+              "text": "/* Function: __invoke_watson */"
+            },
+            {
+              "lineno": 8161,
+              "text": ""
+            },
+            {
+              "lineno": 8162,
+              "text": "/* Library Function - Single Match"
+            },
+            {
+              "lineno": 8163,
+              "text": "    __invoke_watson"
+            },
+            {
+              "lineno": 8164,
+              "text": "   "
+            },
+            {
+              "lineno": 8165,
+              "text": "   Library: Visual Studio 2010 Release */"
+            },
+            {
+              "lineno": 8166,
+              "text": ""
+            },
+            {
+              "lineno": 8167,
+              "text": "void __cdecl"
+            },
+            {
+              "lineno": 8168,
+              "text": "__invoke_watson(wchar_t *param_1,wchar_t *param_2,wchar_t *param_3,uint param_4,uintptr_t param_5)"
+            }
+          ],
+          "evidence": {
+            "match_excerpt": "al_2d4 = 0x10001;\n  local_324.ExceptionCode = dwExceptionCode;\n  local_324.ExceptionFlags = dwExceptionFlags;\n  BVar2 = IsDebuggerPresent();\n  SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)0x0);\n  LVar3 = UnhandledExceptionFilter(&local_32c);\n  "
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "errors": [],
+    "units": 1,
+    "total_slices": 12
+  }
+}
