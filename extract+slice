@@ -1,0 +1,282 @@
+import re, os, sys, json, argparse, hashlib
+from dataclasses import dataclass
+from typing import List, Dict, Tuple, Optional, Set, Pattern
+
+def eprint(*a, **k): print(*a, file=sys.stderr, **k)
+
+@dataclass
+class Config:
+    base64_min_len:int=200
+    hex_array_min_bytes:int=128
+    window_lines:int=60
+    per_unit_cap:int=12
+    total_cap:int=4000
+    dedup_same:float=0.6
+    dedup_diff:float=0.9
+    include_api_suspicious:bool=True
+    api_list_json:str="categorized_api_list.json"
+    emit_json:Optional[str]=None
+    emit_c:str="slices.c"
+
+STR_LIT_RX=re.compile(r"\"(?:[^\"\\]|\\.)*\"")
+SEQ_RX=re.compile(r"(?:\"(?:[^\"\\]|\\.)*\"\s*){2,}")
+INDIRECT_CALL_RX=re.compile(r"\(\s*\*[^)]+\)\s*\(")
+ANTI_DEBUG_RX=re.compile(r"\b(IsDebuggerPresent|CheckRemoteDebuggerPresent|NtQueryInformationProcess|SetUnhandledExceptionFilter|UnhandledExceptionFilter|OutputDebugStringA|OutputDebugStringW)\b")
+INLINE_SYSCALL_RX=re.compile(r"(?:__emit\s*\(\s*0x0f\s*,\s*0x05\s*\)|\bint\s+0x2e\b|\bsysenter\b|\bsyscall\b)")
+FUNC_HDR_RX=re.compile(r"/\*\s*Function:\s*.*?\*/", re.S)
+HEX_VAL=r"(?:0x[0-9a-fA-F]{1,2}|\d{1,3})"
+
+def build_patterns(cfg:Config)->Dict[str,Pattern]:
+    base64_rx=re.compile(rf"[A-Za-z0-9+/]{{{cfg.base64_min_len},}}={{0,2}}")
+    tail_min=max(0, cfg.hex_array_min_bytes-1)
+    hex_array_rx=re.compile(r"\{\s*"+HEX_VAL+rf"(?:\s*,\s*{HEX_VAL})"+"{"+f"{tail_min}"+r",}\s*,?\s*\}", re.S)
+    pe_mz_rx=re.compile(r"This program cannot be run in DOS mode|\\x4D\\x5A")
+    embed_pe_rx=re.compile(r"PE\\x00\\x00|\\x50\\x45\\x00\\x00|PE\x00\x00")
+    return {
+        "BASE64": base64_rx,
+        "HEX_ARRAY": hex_array_rx,
+        "PE_MZ": pe_mz_rx,
+        "EMBED_PE": embed_pe_rx,
+        "IND_CALL": INDIRECT_CALL_RX,
+        "ANTI_DBG": ANTI_DEBUG_RX,
+        "INLINE_SC": INLINE_SYSCALL_RX,
+    }
+
+def _text_to_lines(t:str)->List[str]:
+    return t.splitlines()
+
+def _center_from_index(t:str,idx:int)->int:
+    return t.count("\n",0,idx)
+
+def _window(lines:List[str],center:int,half:int)->Tuple[int,int,List[Tuple[int,str]]]:
+    if not lines: return 1, 0, []
+    s=max(0,center-half)
+    e=min(len(lines)-1,center+half)
+    out=[(i+1,lines[i]) for i in range(s,e+1)]
+    return s+1,e+1,out
+
+def _unescape(s:str)->str:
+    try: return bytes(s,"utf-8").decode("unicode_escape")
+    except: return s
+
+def _concat_string_literals(seq_txt:str)->str:
+    parts=[]
+    for m in STR_LIT_RX.finditer(seq_txt):
+        lit=m.group(0)
+        parts.append(_unescape(lit[1:-1]))
+    return "".join(parts)
+
+def _find_b64_concat_mapped(text:str, base64_rx:Pattern)->List[Tuple[int,int,str]]:
+    out=[]
+    for m in SEQ_RX.finditer(text):
+        seq=m.group(0)
+        cat=_concat_string_literals(seq)
+        for b in base64_rx.finditer(cat):
+            out.append((m.start(),m.end(),cat[b.start():b.end()]))
+    return out
+
+def _mk_hash(s:str)->str:
+    return hashlib.sha1(s.encode("utf-8","ignore")).hexdigest()[:12]
+
+def _overlap_inclusive(a:Tuple[int,int],b:Tuple[int,int])->float:
+    sa,ea=a; sb,eb=b
+    inter=max(0, min(ea,eb)-max(sa,sb)+1)
+    la=max(1, ea-sa+1); lb=max(1, eb-sb+1)
+    return inter/max(la,lb)
+
+def _insert_dedup(slices:List[Dict],item:Dict,th_same:float,th_diff:float)->bool:
+    for ex in slices:
+        ov=_overlap_inclusive((ex["start_line"],ex["end_line"]),(item["start_line"],item["end_line"]))
+        if ex["name"]==item["name"] and ex["trigger"]==item["trigger"]:
+            if ov>=th_same: return False
+        else:
+            if ov>=th_diff: return False
+    slices.append(item)
+    return True
+
+def _collect_matches(text:str, pat:Dict[str,Pattern])->Tuple[Dict[str,List[Tuple[int,int,str]]],Dict[str,List[Tuple[int,int,str]]]]:
+    high={}
+    mid={}
+    arr=[(m.start(),m.end(),text[m.start():m.end()]) for m in pat["INLINE_SC"].finditer(text)]
+    if arr: high["inline_syscall"]=arr
+    arr=[(m.start(),m.end(),text[m.start():m.end()]) for m in pat["IND_CALL"].finditer(text)]
+    if arr: mid["indirect_call"]=arr
+    arr=[(m.start(),m.end(),text[m.start():m.end()]) for m in pat["ANTI_DBG"].finditer(text)]
+    if arr: mid["anti_debug"]=arr
+    arr=[(m.start(),m.end(),text[m.start():m.end()]) for m in pat["HEX_ARRAY"].finditer(text)]
+    if arr: mid["hex_array"]=arr
+    arr=[(m.start(),m.end(),text[m.start():m.end()]) for m in pat["BASE64"].finditer(text)]
+    if arr: mid["b64_blob"]=arr
+    arr2=_find_b64_concat_mapped(text, pat["BASE64"])
+    if arr2: mid.setdefault("b64_blob",[]).extend(arr2)
+    mz=[(m.start(),m.end(),text[m.start():m.end()]) for m in pat["PE_MZ"].finditer(text)]
+    if mz: high["mz_pe_hdr"]=mz
+    pe=[(m.start(),m.end(),text[m.start():m.end()]) for m in pat["EMBED_PE"].finditer(text)]
+    if pe: high["pe_embed"]=pe
+    return high,mid
+
+def _severity_policy(found_high:Set[str])->Dict[str,bool]:
+    strong_high=bool(found_high.intersection({"inline_syscall"}))
+    return {"strong_high":strong_high}
+
+def _make_slice(unit_id:str,name:str,trigger:str,sev:str,ws:int,we:int,win:List[Tuple[int,str]],excerpt:str)->Dict:
+    return {"unit_id":unit_id,"name":name,"trigger":trigger,"severity":sev,"start_line":ws,"end_line":we,"decomp_slice":[{"lineno":ln,"text":tx} for ln,tx in win],"evidence":{"match_excerpt":excerpt[:300]}}
+
+def _split_functions_with_spans(text:str)->List[Tuple[int,int,str]]:
+    headers=list(FUNC_HDR_RX.finditer(text))
+    if not headers: return [(0,len(text),text)]
+    spans=[]
+    for i,h in enumerate(headers):
+        s=h.start()
+        e=headers[i+1].start() if i+1<len(headers) else len(text)
+        spans.append((s,e,text[s:e]))
+    return spans
+
+def _load_api_keywords_and_regex(p:str)->Optional[Tuple[Dict[str,List[str]], Pattern]]:
+    try:
+        with open(p,"r",encoding="utf-8") as f:
+            cat=json.load(f)
+        kw={}
+        for c,apis in cat.items():
+            for a in apis:
+                kw.setdefault(a,[]).append(c)
+        rx=re.compile(r"\b("+ "|".join(re.escape(k) for k in kw.keys()) + r")\b", re.I) if kw else re.compile(r"a^")
+        return kw, rx
+    except Exception as e:
+        eprint(f"api list load error: {e}")
+        return None
+
+def _extract_api_suspicious_blocks(text:str,kw:Dict[str,List[str]],rx:Pattern)->List[Tuple[int,int,str,str]]:
+    out=[]
+    for s,e,chunk in _split_functions_with_spans(text):
+        if rx.search(chunk):
+            out.append((s,e,chunk,"api_suspicious"))
+    return out
+
+def _process_one(path:str,cfg:Config,pat:Dict[str,Pattern],global_counters:Dict[str,int],api_pack:Optional[Tuple[Dict[str,List[str]],Pattern]])->List[Dict]:
+    try:
+        with open(path,"r",encoding="utf-8") as f:
+            text=f.read()
+    except Exception as e:
+        eprint(f"read fail: {path}: {e}")
+        return []
+    unit_id=_mk_hash(path)
+    name=os.path.basename(path)
+    lines=_text_to_lines(text)
+    high,mid=_collect_matches(text, pat)
+    found_high=set(high.keys())
+    sev_flags=_severity_policy(found_high)
+    slices=[]
+    per_unit_cnt=0
+    half=max(1, cfg.window_lines//2)
+    for key,matches in high.items():
+        for s,e,frag in matches:
+            if global_counters["total"]>=cfg.total_cap or per_unit_cnt>=cfg.per_unit_cap: break
+            center=_center_from_index(text,s)
+            ws,we,win=_window(lines,center,half)
+            item=_make_slice(unit_id,name,key,"high",ws,we,win,frag)
+            if _insert_dedup(slices,item,cfg.dedup_same,cfg.dedup_diff):
+                global_counters["total"]+=1
+                per_unit_cnt+=1
+        if global_counters["total"]>=cfg.total_cap or per_unit_cnt>=cfg.per_unit_cap: break
+    if not sev_flags["strong_high"] and per_unit_cnt<cfg.per_unit_cap and global_counters["total"]<cfg.total_cap:
+        for key,matches in mid.items():
+            for s,e,frag in matches:
+                if global_counters["total"]>=cfg.total_cap or per_unit_cnt>=cfg.per_unit_cap: break
+                center=_center_from_index(text,s)
+                ws,we,win=_window(lines,center,half)
+                item=_make_slice(unit_id,name,key,"mid",ws,we,win,frag)
+                if _insert_dedup(slices,item,cfg.dedup_same,cfg.dedup_diff):
+                    global_counters["total"]+=1
+                    per_unit_cnt+=1
+            if global_counters["total"]>=cfg.total_cap or per_unit_cnt>=cfg.per_unit_cap: break
+    if cfg.include_api_suspicious and api_pack and per_unit_cnt<cfg.per_unit_cap and global_counters["total"]<cfg.total_cap:
+        kw,rx=api_pack
+        api_blocks=_extract_api_suspicious_blocks(text,kw,rx)
+        for s,e,chunk,trig in api_blocks:
+            if global_counters["total"]>=cfg.total_cap or per_unit_cnt>=cfg.per_unit_cap: break
+            center=_center_from_index(text,s)
+            ws,we,win=_window(lines,center,half)
+            item=_make_slice(unit_id,name,trig,"mid",ws,we,win,chunk[:300])
+            if _insert_dedup(slices,item,cfg.dedup_same,cfg.dedup_diff):
+                global_counters["total"]+=1
+                per_unit_cnt+=1
+    return slices
+
+def _gather_inputs(in_dir:Optional[str],in_file:Optional[str])->List[str]:
+    paths=[]
+    if in_dir:
+        for r,_,fs in os.walk(in_dir):
+            for fn in fs:
+                if fn.lower().endswith(".c"): paths.append(os.path.join(r,fn))
+    if in_file: paths.append(in_file)
+    seen=set(); uniq=[]
+    for p in paths:
+        if p not in seen:
+            seen.add(p); uniq.append(p)
+    return uniq
+
+def _ensure_parent_dir(path:str):
+    d=os.path.dirname(path)
+    if d: os.makedirs(d, exist_ok=True)
+
+def _emit_c(units:List[Dict],out_path:str):
+    _ensure_parent_dir(out_path)
+    with open(out_path,"w",encoding="utf-8") as f:
+        f.write("/* generated suspicious slices */\n\n")
+        for i,u in enumerate(units):
+            nm=u["name"]; trig=u["trigger"]; sev=u["severity"]; s=u["start_line"]; e=u["end_line"]
+            f.write(f"/* ==== slice[{i}] file:{nm} trigger:{trig} severity:{sev} lines:{s}-{e} ==== */\n")
+            for ln in u["decomp_slice"]:
+                f.write(ln["text"]+"\n")
+            f.write("\n")
+
+def _emit_json(units:List[Dict],out_path:str):
+    _ensure_parent_dir(out_path)
+    files=len({u["name"] for u in units})
+    obj={"units":units,"summary":{"errors":[],"units":files,"total_slices":len(units)}}
+    with open(out_path,"w",encoding="utf-8") as f:
+        json.dump(obj,f,ensure_ascii=False,indent=2)
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument("--in-dir",type=str,default=None)
+    ap.add_argument("--in-file",type=str,default=None)
+    ap.add_argument("--out-c",type=str,default="slices.c")
+    ap.add_argument("--emit-json",type=str,default=None)
+    ap.add_argument("--window-lines",type=int,default=60)
+    ap.add_argument("--per-unit-cap",type=int,default=12)
+    ap.add_argument("--total-cap",type=int,default=4000)
+    ap.add_argument("--base64-min-len",type=int,default=200)
+    ap.add_argument("--hex-array-min-bytes",type=int,default=128)
+    ap.add_argument("--api-list-json",type=str,default="categorized_api_list.json")
+    ap.add_argument("--include-api-suspicious",action="store_true")
+    args=ap.parse_args()
+    if not args.in_dir and not args.in_file:
+        eprint("need --in-dir or --in-file"); sys.exit(2)
+    cfg=Config(
+        base64_min_len=args.base64_min_len,
+        hex_array_min_bytes=args.hex_array_min_bytes,
+        window_lines=args.window_lines,
+        per_unit_cap=args.per_unit_cap,
+        total_cap=args.total_cap,
+        emit_c=args.out_c,
+        emit_json=args.emit_json,
+        include_api_suspicious=args.include_api_suspicious,
+        api_list_json=args.api_list_json
+    )
+    pat=build_patterns(cfg)
+    inputs=_gather_inputs(args.in_dir,args.in_file)
+    api_pack=_load_api_keywords_and_regex(cfg.api_list_json) if cfg.include_api_suspicious else None
+    units_all=[]
+    counters={"total":0}
+    for p in inputs:
+        if counters["total"]>=cfg.total_cap: break
+        u=_process_one(p,cfg,pat,counters,api_pack)
+        units_all.extend(u)
+    _emit_c(units_all,cfg.emit_c)
+    if cfg.emit_json: _emit_json(units_all,cfg.emit_json)
+    eprint(f"slices:{len(units_all)} files:{len({u['name'] for u in units_all})} out_c:{cfg.emit_c}" + (f" json:{cfg.emit_json}" if cfg.emit_json else ""))
+
+if __name__=="__main__":
+    main()
