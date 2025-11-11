@@ -38,6 +38,7 @@ RX_HIGH = {
     "pe_embed": re.compile(r"This program cannot be run in DOS mode", re.I),
     "mz_pe_hdr": re.compile(r"\bMZ\b.*?\bPE\0\0", re.S),
 }
+
 RX_MID = {
     "b64_blob": BASE64_BLOB_RX,
     "hex_array": HEX_ARRAY_RX,
@@ -273,7 +274,8 @@ def _try_add_slice(slices: List[Dict[str,Any]], item: Dict[str,Any], total: int)
     if _insert_dedup(slices, item):
         return True, total+1
     return False, total
-    
+
+# --- MOD START: indirect-call 컨텍스트 + C 출력 유틸 ---
 CTX_TOKENS = re.compile(
     r"VirtualAlloc|VirtualProtect|GetProcAddress|LoadLibrary|WriteProcessMemory|"
     r"CreateRemoteThread|CreateProcess|MapViewOfFile|UnmapViewOfFile|"
@@ -288,6 +290,43 @@ def _context_ok(lines: List[str], center_line: int, radius: int) -> bool:
 
 def _under_trigger_cap(per_trigger_cnt: Dict[str,int], trigger: str, cap: int) -> bool:
     return per_trigger_cnt.get(trigger, 0) < cap
+
+def _sanitize_filename_component(s: str) -> str:
+    s = re.sub(r"[^\w\-.]+", "_", s)
+    return s[:80] if len(s) > 80 else s
+
+def emit_c_outputs(res: Dict[str,Any], out_dir: str, style: str, prefix: str):
+    os.makedirs(out_dir, exist_ok=True)
+    if style == "combined":
+        path = os.path.join(out_dir, f"{_sanitize_filename_component(prefix)}_combined.c")
+        with open(path,"w",encoding="utf-8",errors="ignore") as w:
+            w.write("/* generated slices */\n")
+            for u in res.get("units",[]):
+                for idx, s in enumerate(u.get("slices",[]), 1):
+                    w.write(f"\n/* BEGIN unit={u['name']} trigger={s['trigger']} severity={s['severity']} slice={idx} lines={s['start_line']}-{s['end_line']} */\n")
+                    if s.get("decomp_slice"):
+                        first = s["decomp_slice"][0]["lineno"]
+                        w.write(f'#line {first} "{u["name"]}"\n')
+                        for line in s["decomp_slice"]:
+                            w.write(line["text"] + "\n")
+                    w.write(f"/* END unit={u['name']} slice={idx} */\n")
+        return path
+    else:
+        written = []
+        for u in res.get("units",[]):
+            for idx, s in enumerate(u.get("slices",[]), 1):
+                base = f'{prefix}__{_sanitize_filename_component(u["name"])}__{idx:04d}__{s["trigger"]}_{s["start_line"]}-{s["end_line"]}.c'
+                path = os.path.join(out_dir, base)
+                with open(path,"w",encoding="utf-8",errors="ignore") as w:
+                    w.write(f"/* BEGIN unit={u['name']} trigger={s['trigger']} severity={s['severity']} slice={idx} */\n")
+                    if s.get("decomp_slice"):
+                        first = s["decomp_slice"][0]["lineno"]
+                        w.write(f'#line {first} "{u["name"]}"\n')
+                        for line in s["decomp_slice"]:
+                            w.write(line["text"] + "\n")
+                    w.write(f"/* END unit={u['name']} slice={idx} */\n")
+                written.append(path)
+        return written
 
 def process_units(units: List[Dict[str,Any]], summary: Dict[str,Any]) -> Dict[str,Any]:
     out_units=[]; total=0
@@ -344,6 +383,7 @@ def process_units(units: List[Dict[str,Any]], summary: Dict[str,Any]) -> Dict[st
                     if key not in mid_matches: continue
                     for (s,e,frag) in mid_matches[key]:
                         if total >= CFG["TOTAL_CAP"] or len(slices) >= CFG["PER_UNIT_CAP"]: break
+                        # --- MOD START: indirect 컨텍스트 + cap ---
                         if key == "indirect_call" and CFG["INDIRECT_CONTEXT_ONLY"]:
                             center = _center_from_index(text, s)
                             if not _context_ok(lines, center, CFG["CONTEXT_RADIUS"]):
@@ -385,6 +425,10 @@ def main():
     ap.add_argument("--per-trigger-cap", type=int, default=CFG["PER_TRIGGER_CAP"])
     ap.add_argument("--indirect-context-only", action="store_true")
     ap.add_argument("--context-radius", type=int, default=CFG["CONTEXT_RADIUS"])
+    ap.add_argument("--out-format", choices=["json","c","both"], default="json")
+    ap.add_argument("--out-c-dir", default="c_slices")
+    ap.add_argument("--c-style", choices=["combined","per-slice"], default="combined")
+    ap.add_argument("--c-prefix", default="slices")
     args = ap.parse_args()
 
     CFG["WINDOW_LINES"] = args.window
@@ -425,12 +469,18 @@ def main():
         units = _load_json(args.in_json, errs)
 
     res = process_units(units, summary={"errors": errs})
-    try:
-        with open(args.out, "w", encoding="utf-8") as w:
-            json.dump(res, w, ensure_ascii=False, indent=2)
-    except Exception as e:
-        sys.stderr.write(f"write_fail:{args.out}:{e}\n")
-        sys.exit(2)
+    wrote_json = False
+    if args.out_format in ("json","both"):
+        try:
+            with open(args.out, "w", encoding="utf-8") as w:
+                json.dump(res, w, ensure_ascii=False, indent=2)
+            wrote_json = True
+        except Exception as e:
+            sys.stderr.write(f"write_fail:{args.out}:{e}\n")
+            sys.exit(2)
 
+    if args.out_format in ("c","both"):
+        prefix = args.c_prefix or (os.path.splitext(os.path.basename(args.out))[0] if wrote_json else "slices")
+        emit_c_outputs(res, args.out_c_dir, args.c_style, prefix)
 if __name__ == "__main__":
     main()
