@@ -14,6 +14,9 @@ CFG = {
     "SKIP_MID_WHEN_STRONG_HIGH": True,
     "MID_MIN_WHEN_STRONG_HIGH": 2,
     "MID_WHITELIST_STRONG": ["b64_blob","anti_debug","hex_array"],
+    "PER_TRIGGER_CAP": 3,
+    "INDIRECT_CONTEXT_ONLY": False,
+    "CONTEXT_RADIUS": 40,
 }
 
 def _mk_base64_rx(n: int) -> re.Pattern:
@@ -39,7 +42,10 @@ RX_MID = {
     "b64_blob": BASE64_BLOB_RX,
     "hex_array": HEX_ARRAY_RX,
     "anti_debug": re.compile(r"IsDebuggerPresent|CheckRemoteDebuggerPresent|BeingDebugged|NtGlobalFlag|NtQueryInformationProcess\s*\([^)]*?ProcessDebug", re.I | re.S),
-    "indirect_call": re.compile(r"\(\s*\*\s*[A-Za-z_]\w*\s*\)\s*\(", re.M),
+    "indirect_call": re.compile(
+        r"\(\s*\*\s*(?:DAT_[0-9A-Fa-f]+|PTR_[0-9A-Fa-f]+|pcVar\d+|pv?Var\d+|\(\s*code\s*\*\s*\*\s*[A-Za-z_]\w*\s*\))\s*\)\s*\(",
+        re.M
+    ),
     "cast_call": re.compile(r"\(\s*\(\s*[A-Za-z_][\w\s\*\(\),]*\*\)\s*\)\s*[A-Za-z_]\w*\s*\(", re.M),
     "xor_loop": re.compile(r"for\s*\([^)]*\)\s*\{[^{}]*?\b([\w\)\]]+)\s*=\s*\1\s*\^\s*([0-9xXa-fA-F]+|[A-Za-z_]\w*)", re.S),
     "xor_assign": re.compile(r"\b[A-Za-z_]\w*\s*\^=\s*(?:0x[0-9A-Fa-f]+|\d+|[A-Za-z_]\w*)", re.I),
@@ -267,6 +273,21 @@ def _try_add_slice(slices: List[Dict[str,Any]], item: Dict[str,Any], total: int)
     if _insert_dedup(slices, item):
         return True, total+1
     return False, total
+    
+CTX_TOKENS = re.compile(
+    r"VirtualAlloc|VirtualProtect|GetProcAddress|LoadLibrary|WriteProcessMemory|"
+    r"CreateRemoteThread|CreateProcess|MapViewOfFile|UnmapViewOfFile|"
+    r"IsDebuggerPresent|CheckRemoteDebuggerPresent|Nt[A-Za-z_]+",
+    re.I
+)
+def _context_ok(lines: List[str], center_line: int, radius: int) -> bool:
+    a = max(0, center_line - radius - 1)
+    b = min(len(lines), center_line + radius)
+    seg = "\n".join(lines[a:b])
+    return bool(CTX_TOKENS.search(seg))
+
+def _under_trigger_cap(per_trigger_cnt: Dict[str,int], trigger: str, cap: int) -> bool:
+    return per_trigger_cnt.get(trigger, 0) < cap
 
 def process_units(units: List[Dict[str,Any]], summary: Dict[str,Any]) -> Dict[str,Any]:
     out_units=[]; total=0
@@ -282,15 +303,20 @@ def process_units(units: List[Dict[str,Any]], summary: Dict[str,Any]) -> Dict[st
         mid_cat_count   = sum(1 for k,v in mid_matches.items() if v)
         sev_flags = _severity_policy(found_high_keys, mid_cat_count)
         slices=[]
+        per_trigger_cnt: Dict[str, int] = {}
         for key in ["reg_run","service_str","tasks_sched","inline_syscall","pe_embed","mz_pe_hdr"]:
             if total >= CFG["TOTAL_CAP"] or len(slices) >= CFG["PER_UNIT_CAP"]: break
             if key not in high_matches: continue
             for (s,e,frag) in high_matches[key]:
                 if total >= CFG["TOTAL_CAP"] or len(slices) >= CFG["PER_UNIT_CAP"]: break
                 if _per_match_allowlisted(key, frag): continue
+                if not _under_trigger_cap(per_trigger_cnt, key, CFG["PER_TRIGGER_CAP"]):
+                    continue
                 sev = "high" if (key in ["reg_run","service_str","tasks_sched","inline_syscall"] or (key in ["pe_embed","mz_pe_hdr"] and sev_flags["pe_high"])) else "mid"
                 item = _make_slice(u, lines, text, s, e, key, sev)
-                _, total = _try_add_slice(slices, item, total)
+                ok, total = _try_add_slice(slices, item, total)
+                if ok:
+                    per_trigger_cnt[key] = per_trigger_cnt.get(key, 0) + 1
         mid_budget = max(0, CFG["PER_UNIT_CAP"] - len(slices))
         if mid_budget > 0:
             if sev_flags["strong_high"] and CFG["SKIP_MID_WHEN_STRONG_HIGH"]:
@@ -300,9 +326,17 @@ def process_units(units: List[Dict[str,Any]], summary: Dict[str,Any]) -> Dict[st
                     if key not in mid_matches: continue
                     for (s,e,frag) in mid_matches[key]:
                         if added >= min(CFG["MID_MIN_WHEN_STRONG_HIGH"], mid_budget): break
+                        if key == "indirect_call" and CFG["INDIRECT_CONTEXT_ONLY"]:
+                            center = _center_from_index(text, s)
+                            if not _context_ok(lines, center, CFG["CONTEXT_RADIUS"]):
+                                continue
+                        if not _under_trigger_cap(per_trigger_cnt, key, CFG["PER_TRIGGER_CAP"]):
+                            continue
                         item = _make_slice(u, lines, text, s, e, key, "mid")
                         ok, total = _try_add_slice(slices, item, total)
-                        if ok: added += 1
+                        if ok:
+                            added += 1
+                            per_trigger_cnt[key] = per_trigger_cnt.get(key, 0) + 1
                     if added >= min(CFG["MID_MIN_WHEN_STRONG_HIGH"], mid_budget): break
             else:
                 for key in ["b64_blob","hex_array","anti_debug","indirect_call","cast_call","xor_loop","xor_assign","rol_ror_loop","com_sched"]:
@@ -310,8 +344,16 @@ def process_units(units: List[Dict[str,Any]], summary: Dict[str,Any]) -> Dict[st
                     if key not in mid_matches: continue
                     for (s,e,frag) in mid_matches[key]:
                         if total >= CFG["TOTAL_CAP"] or len(slices) >= CFG["PER_UNIT_CAP"]: break
+                        if key == "indirect_call" and CFG["INDIRECT_CONTEXT_ONLY"]:
+                            center = _center_from_index(text, s)
+                            if not _context_ok(lines, center, CFG["CONTEXT_RADIUS"]):
+                                continue
+                        if not _under_trigger_cap(per_trigger_cnt, key, CFG["PER_TRIGGER_CAP"]):
+                            continue
                         item = _make_slice(u, lines, text, s, e, key, "mid")
-                        _, total = _try_add_slice(slices, item, total)
+                        ok, total = _try_add_slice(slices, item, total)
+                        if ok:
+                            per_trigger_cnt[key] = per_trigger_cnt.get(key, 0) + 1
         if slices:
             slices.sort(key=lambda x: x["start_line"])
             out_units.append({"unit_id": u["unit_id"], "name": u["name"], "slices": slices})
@@ -339,6 +381,10 @@ def main():
     mx.add_argument("--no-skip-mid-on-strong-high", action="store_true")
     ap.add_argument("--mid-min-when-strong-high", type=int, default=CFG["MID_MIN_WHEN_STRONG_HIGH"])
     ap.add_argument("--mid-whitelist-strong", default=",".join(CFG["MID_WHITELIST_STRONG"]))
+    ap.add_argument("--disable-mid", default="", help="comma separated mid triggers to disable")
+    ap.add_argument("--per-trigger-cap", type=int, default=CFG["PER_TRIGGER_CAP"])
+    ap.add_argument("--indirect-context-only", action="store_true")
+    ap.add_argument("--context-radius", type=int, default=CFG["CONTEXT_RADIUS"])
     args = ap.parse_args()
 
     CFG["WINDOW_LINES"] = args.window
@@ -355,10 +401,21 @@ def main():
     CFG["MID_MIN_WHEN_STRONG_HIGH"] = max(0, args.mid_min_when_strong_high)
     wl = [x.strip() for x in (args.mid_whitelist_strong or "").split(",") if x.strip()]
     if wl: CFG["MID_WHITELIST_STRONG"] = wl
+    CFG["PER_TRIGGER_CAP"] = max(1, args.per_trigger_cap)
+    CFG["INDIRECT_CONTEXT_ONLY"] = bool(args.indirect_context_only)
+    CFG["CONTEXT_RADIUS"] = max(1, args.context_radius)
 
     global BASE64_BLOB_RX, HEX_ARRAY_RX
     BASE64_BLOB_RX = _mk_base64_rx(CFG["BASE64_MIN_LEN"])
     HEX_ARRAY_RX   = _mk_hex_array_rx(CFG["HEX_ARRAY_MIN_BYTES"])
+    if "b64_blob" in RX_MID: RX_MID["b64_blob"] = BASE64_BLOB_RX
+    if "hex_array" in RX_MID: RX_MID["hex_array"] = HEX_ARRAY_RX
+
+    disabled = {x.strip() for x in (args.disable_mid or "").split(",") if x.strip()}
+    if disabled:
+        for k in list(RX_MID.keys()):
+            if k in disabled:
+                del RX_MID[k]
     _load_allowlist(args.allowlist)
 
     errs=[]
