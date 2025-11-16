@@ -24,7 +24,7 @@ def setup_environment():
     print("--- [LLM 설정] ---")
     try:
         # !! 중요 !!: 환경 변수에서 API 키를 읽어옵니다.
-        API_KEY = "AIzaSyB_FZ7_9I7EdRVvOoRhnKSnczLj6c2wVHo"
+        API_KEY = ""
         #os.environ.get("GEMINI_API_KEY")
         if not API_KEY:
             raise ValueError("GEMINI_API_KEY 환경 변수가 설정되지 않았습니다.")
