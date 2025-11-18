@@ -1,0 +1,10 @@
+def build_user_input(file1_text: str, file2_text: str) -> str:
+    return f"""
+[FILE_1_BEGIN]
+{file1_text}
+[FILE_1_END]
+
+[FILE_2_BEGIN]
+{file2_text}
+[FILE_2_END]
+"""
