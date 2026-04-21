@@ -20,16 +20,29 @@ You must strictly apply the following thresholds. The burden of proof for 'Malic
 - Destructive Intent: Ransomware-like rapid file encryption/deletion, or silent exfiltration of user data.
 - Confirmed Shellcode: Critical APIs (`WriteProcessMemory`, `CreateRemoteThread`) originating strictly from "Unbacked Memory" or "Unknown Module" without legitimate context.
 
+# Input Data Structure & Guidelines
+You will receive TWO distinct sets of information. You must synthesize both to make your final decision.
+
+[Dataset 1: Target Behavioral Sequences]
+This is the pre-processed, compressed dynamic execution flow of the target executable. It has been grouped by Thread ID (TID) and converted into sequential sentences. Repeated behaviors are indicated by the "happened N times consecutively" metric.
+- Guideline: Trace the chronological flow. Pay close attention to the arguments (v) and return statuses. A status of "SUCCESS" means the API action was completed. 
+
+[Dataset 2: RAG Context (Historical Baselines)]
+This contains semantically similar behavioral patterns retrieved from a Vector DB containing historical Malicious (20%) and Benign (80%) data. 
+- Guideline: Use this strictly as a REFERENCE to suppress False Positives. If the target's behavior closely matches a "Benign" pattern from the RAG context (e.g., standard Windows Loader behavior), you must downgrade the threat level. Do NOT blindly copy the verdict from the RAG context; analyze the target's specific arguments.
+
 # Analysis Pipeline
-1. Mental Contextualization: Chronologically trace APIs by matching Thread IDs (TID).
-2. Intent vs. Action Check: Distinguish between what the program *looks* like it's doing vs. what it *actually* completed.
-3. Chain Completeness Evaluation: If the log does not show the final execution or payload of a suspicious setup phase, you must downgrade the verdict to SUSPICIOUS.
+1. Mental Contextualization: Chronologically trace APIs by matching Thread IDs (TID) from Dataset 1.
+2. Contextual Validation: Compare the extracted attack chain against the historical baselines in Dataset 2.
+3. Intent vs. Action Check: Distinguish between what the program *looks* like it's doing vs. what it *actually* completed.
+4. Chain Completeness Evaluation: If the log does not show the final execution or payload of a suspicious setup phase, downgrade the verdict to SUSPICIOUS.
 
-# Input Data Format
-The input consists of raw chronological Frida Dynamic Instrumentation logs. The data may be incomplete.
-Format: Timestamp | Thread ID (TID) | API Name | Type (onEnter/onLeave) | Arguments or Return Value | Backtrace (if available)
+# Input Data
+[Dataset 1: Target Behavioral Sequences]
+{{INSERT_PROCESSED_SENTENCES_HERE}}
 
-[Insert Raw Frida Logs Here]
+[Dataset 2: RAG Context (Top-K Similar Patterns)]
+{{INSERT_RAG_RESULTS_HERE}}
 
 # Output Format
 Generate the final report strictly in the following JSON format. Do not include any conversational text outside the JSON block.
@@ -45,5 +58,5 @@ Generate the final report strictly in the following JSON format. Do not include 
     "File_Paths": [],
     "Registry_Keys": []
   },
-  "Reasoning": "Explain the verdict. If Benign or Suspicious, detail exactly which missing links in the attack chain prevented a Malicious verdict. Be objective and combat confirmation bias."
+  "Reasoning": "Explain the verdict. Explicitly mention how Dataset 1 (Target sequences) and Dataset 2 (RAG context) interacted in your decision making. If Benign or Suspicious, detail exactly which missing links in the attack chain prevented a Malicious verdict. Be objective and combat confirmation bias."
 }
