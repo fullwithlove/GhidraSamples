@@ -1,0 +1,1796 @@
+{
+  "DrawTextExA": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "DrawTextExW": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "InternetCrackUrlA": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetCrackUrlW": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetOpenA": {
+    "category": "Internet",
+    "type": "STR_A",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetOpenW": {
+    "category": "Internet",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetCloseHandle": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetConnectA": {
+    "category": "Internet",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetConnectW": {
+    "category": "Internet",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetOpenUrlA": {
+    "category": "Internet",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetOpenUrlW": {
+    "category": "Internet",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetReadFile": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetQueryOptionA": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetSetOptionA": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetSetStatusCallback": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "HttpOpenRequestA": {
+    "category": "Internet",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "HttpOpenRequestW": {
+    "category": "Internet",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "HttpSendRequestA": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "HttpSendRequestW": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "HttpQueryInfoA": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetGetConnectedState": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "InternetGetConnectedStateExW": {
+    "category": "Internet",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "WSAConnect": {
+    "category": "Socket",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "WSASocketA": {
+    "category": "Socket",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "WSASocketW": {
+    "category": "Socket",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetAddrInfoW": {
+    "category": "Socket",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "DnsQuery_A": {
+    "category": "DNS",
+    "type": "STR_A",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetBestInterfaceEx": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetAdaptersInfo": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetAdaptersAddresses": {
+    "category": "IP Helper",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NetUserGetInfo": {
+    "category": "Network",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "NetGetJoinInformation": {
+    "category": "Network",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "EncryptMessage": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "DecryptMessage": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetUserNameExA": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetUserNameExW": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptAcquireContextA": {
+    "category": "Security and Identity",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptAcquireContextW": {
+    "category": "Security and Identity",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptGenKey": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptExportKey": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptEncrypt": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptDecrypt": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptCreateHash": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptHashData": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptDecodeObjectEx": {
+    "category": "Security and Identity",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CertOpenStore": {
+    "category": "Security and Identity",
+    "type": "STR_A",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CertControlStore": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptProtectMemory": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CryptUnprotectMemory": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "LookupAccountSidW": {
+    "category": "Security and Identity",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "LookupPrivilegeValueW": {
+    "category": "Security and Identity",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SearchPathW": {
+    "category": "Data Access and Storage",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CreateDirectoryW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "DeleteFileW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindFirstFileExW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetDiskFreeSpaceW": {
+    "category": "Data Access and Storage",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetDiskFreeSpaceExW": {
+    "category": "Data Access and Storage",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileAttributesW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileAttributesExW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileInformationByHandle": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileSize": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileSizeEx": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileType": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetShortPathNameW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetVolumePathNameW": {
+    "category": "Data Access and Storage",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "RemoveDirectoryA": {
+    "category": "Data Access and Storage",
+    "type": "STR_A",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "RemoveDirectoryW": {
+    "category": "Data Access and Storage",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetEndOfFile": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetFileAttributesW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetFilePointer": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetFilePointerEx": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetFileTime": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetTempPathW": {
+    "category": "Data Access and Storage",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetVolumeNameForVolumeMountPointW": {
+    "category": "Security and Identity",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetVolumePathNamesForVolumeNameW": {
+    "category": "Data Access and Storage",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileVersionInfoSizeW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileVersionInfoW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileVersionInfoSizeExW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileVersionInfoExW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NetShareEnum": {
+    "category": "Data Access and Storage",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CopyFileA": {
+    "category": "Filesystem",
+    "type": "STR_A",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CopyFileW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "MoveFileWithProgressW": {
+    "category": "Filesystem",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetFileInformationByHandleEx": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtCreateFile": {
+    "category": "Filesystem",
+    "type": "NT_OBJECT_ATTR",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CreateActCtxW": {
+    "category": "Services",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CoUninitialize": {
+    "category": "Threading",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CoInitializeEx": {
+    "category": "COM/OLE/DDE",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CoGetClassObject": {
+    "category": "COM/OLE/DDE",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CoInitializeSecurity": {
+    "category": "COM/OLE/DDE",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CoCreateInstance": {
+    "category": "COM/OLE/DDE",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CoCreateInstanceEx": {
+    "category": "COM/OLE/DDE",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "URLDownloadToFileW": {
+    "category": "Internet",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "opened remote connection interface using",
+    "object": "external infrastructure network socket"
+  },
+  "WriteConsoleA": {
+    "category": "Windows",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "WriteConsoleW": {
+    "category": "Windows",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetStdHandle": {
+    "category": "Error Handling",
+    "type": "HANDLE",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "ReadProcessMemory": {
+    "category": "Windows",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "WriteProcessMemory": {
+    "category": "Windows",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "IsDebuggerPresent": {
+    "category": "Anti-Debug",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "OutputDebugStringA": {
+    "category": "Windows",
+    "type": "STR_A",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetUnhandledExceptionFilter": {
+    "category": "Error Handling",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetErrorMode": {
+    "category": "Error Handling",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CreateToolhelp32Snapshot": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Process32FirstW": {
+    "category": "Tool Help",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Process32NextW": {
+    "category": "Tool Help",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Thread32First": {
+    "category": "Threading",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Thread32Next": {
+    "category": "Threading",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Module32FirstW": {
+    "category": "Windows",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Module32NextW": {
+    "category": "Tool Help",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "DeviceIoControl": {
+    "category": "Device",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CreateJobObjectW": {
+    "category": "Windows",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "AssignProcessToJobObject": {
+    "category": "Windows",
+    "type": "HANDLE",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetInformationJobObject": {
+    "category": "Windows",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindResourceExW": {
+    "category": "Menu & Resources",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "LoadResource": {
+    "category": "Menu & Resources",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SizeofResource": {
+    "category": "Menu & Resources",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindResourceW": {
+    "category": "Menu & Resources",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindResourceA": {
+    "category": "Menu & Resources",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindResourceExA": {
+    "category": "Menu & Resources",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "OleInitialize": {
+    "category": "COM/OLE/DDE",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "RegCloseKey": {
+    "category": "Registry",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegCreateKeyExA": {
+    "category": "Registry",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegCreateKeyExW": {
+    "category": "Registry",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegDeleteKeyA": {
+    "category": "Registry",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegDeleteKeyW": {
+    "category": "Registry",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegDeleteValueA": {
+    "category": "Registry",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegDeleteValueW": {
+    "category": "Registry",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegEnumKeyW": {
+    "category": "Registry",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegEnumKeyExA": {
+    "category": "Registry",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegEnumKeyExW": {
+    "category": "Registry",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegEnumValueA": {
+    "category": "Registry",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegEnumValueW": {
+    "category": "Registry",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegOpenKeyExA": {
+    "category": "Registry",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegOpenKeyExW": {
+    "category": "Registry",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegQueryInfoKeyA": {
+    "category": "Registry",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegQueryInfoKeyW": {
+    "category": "Registry",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegQueryValueExA": {
+    "category": "Registry",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegQueryValueExW": {
+    "category": "Registry",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegSetValueExA": {
+    "category": "Registry",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "RegSetValueExW": {
+    "category": "Registry",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "UuidCreate": {
+    "category": "Remote Procedure Call",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "ControlService": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CreateServiceA": {
+    "category": "Windows",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CreateServiceW": {
+    "category": "Windows",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "DeleteService": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "OpenSCManagerA": {
+    "category": "Security and Identity",
+    "type": "STR_A",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "OpenSCManagerW": {
+    "category": "Security and Identity",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "OpenServiceA": {
+    "category": "Security and Identity",
+    "type": "STR_A",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "OpenServiceW": {
+    "category": "Security and Identity",
+    "type": "STR_W",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "StartServiceA": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "StartServiceW": {
+    "category": "Security and Identity",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GlobalMemoryStatusEx": {
+    "category": "System",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetSystemInfo": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetSystemTimeAsFileTime": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetSystemDirectoryA": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetSystemDirectoryW": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetSystemWindowsDirectoryA": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetSystemWindowsDirectoryW": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetNativeSystemInfo": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GlobalMemoryStatus": {
+    "category": "System",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CreateThread": {
+    "category": "Threading",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CreateRemoteThread": {
+    "category": "Threading",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetTimeZoneInformation": {
+    "category": "System",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetComputerNameA": {
+    "category": "Developer",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetComputerNameW": {
+    "category": "Developer",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetUserNameA": {
+    "category": "Developer",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetUserNameW": {
+    "category": "Developer",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtClose": {
+    "category": "Developer",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtOpenFile": {
+    "category": "Filesystem",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtDeviceIoControlFile": {
+    "category": "Filesystem",
+    "type": "HANDLE",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtQuerySystemInformation": {
+    "category": "Developer",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "RegisterHotKey": {
+    "category": "Registry",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "accessed or altered system configuration inside",
+    "object": "windows registry hive pathways"
+  },
+  "GetKeyState": {
+    "category": "Input/Output",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetAsyncKeyState": {
+    "category": "Input/Output",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SHGetSpecialFolderLocation": {
+    "category": "Shell",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SHGetFolderPathW": {
+    "category": "Shell",
+    "type": "HANDLE",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "ShellExecuteExW": {
+    "category": "Shell",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "LoadStringA": {
+    "category": "Menu & Resources",
+    "type": "STR_A",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "LoadStringW": {
+    "category": "Menu & Resources",
+    "type": "STR_W",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SendNotifyMessageA": {
+    "category": "Windows",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SendNotifyMessageW": {
+    "category": "Windows",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetSystemMetrics": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetForegroundWindow": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindWindowA": {
+    "category": "Windows",
+    "type": "STR_A",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindWindowW": {
+    "category": "Windows",
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindWindowExA": {
+    "category": "Windows",
+    "type": "STR_A",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindWindowExW": {
+    "category": "Windows",
+    "type": "STR_W",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "EnumWindows": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetWindowsHookExA": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetWindowsHookExW": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "UnhookWindowsHookEx": {
+    "category": "Windows",
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CreateProcessInternalW": {
+    "category": "Process",
+    "type": "CREATE_PROCESS",
+    "idx": 0,
+    "action_verb": "interfaced with execution system via",
+    "object": "operating system process thread execution"
+  },
+  "FindWindow": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "FindWindowEx": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "LdrGetDllHandle": {
+    "type": "STR_W",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "MessageBoxTimeoutA": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtCreateKey": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtCreateMutant": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtDeleteKey": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtEnumerateKey": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtEnumerateValueKey": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtOpenMutant": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtOpenkey": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtQueryKey": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtQueryValueKey": {
+    "type": "NT_UNICODE_STR",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtSetInformationFile": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtSetValueKey": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtdeleteValueKey": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "TimeGetTime": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "JsGlobalObjectDefaultEvalHelper": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "LdrGetProcedureAddress": {
+    "type": "NT_ANSI_STR",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "LdrLoadDll": {
+    "category": "Library",
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "LdrUnloadDll": {
+    "type": "HANDLE",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtCreateThreadEx": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtGetContextThread": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtOpenThread": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtQueueApcThread": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtResumeThread": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtSetContextThread": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtSuspendThread": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtTerminateThread": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtOpenKeyEx": {
+    "type": "NT_OBJECT_ATTR",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtOpenDirectoryObject": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtQueryAttributesFile": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtQueryDirectoryFile": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtQueryInformationFile": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtReadFile": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtWriteFile": {
+    "category": "Filesystem",
+    "type": "DATA_BUF",
+    "idx": 5,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "IWbemServices_ExecMethod": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "IWbemServices_ExecQuery": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "RtlAddVectoredContinueHandler": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "RtlAddVectoredExceptionHandler": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "RtlRemoveVectoredExceptionHandler": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "__exception__": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtAllocateVirtualMemory": {
+    "category": "Memory",
+    "type": "MEM_PROT",
+    "idx": 5,
+    "action_verb": "manipulated virtual memory parameters via",
+    "object": "process memory space region"
+  },
+  "NtCreateSection": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtDelayExecution": {
+    "category": "Evasion",
+    "type": "SLEEP",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtDuplicateObject": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtFreeVirtualMemory": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtLoadDriver": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtMapViewOfSection": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtOpenProcess": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtOpenSection": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtProtectVirtualMemory": {
+    "category": "Memory",
+    "type": "MEM_PROT",
+    "idx": 3,
+    "action_verb": "manipulated virtual memory parameters via",
+    "object": "process memory space region"
+  },
+  "NtReadVirtualMemory": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtTerminateProcess": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtUnmapViewOfSection": {
+    "type": "NT_PATH",
+    "idx": 2,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "NtWriteVirtualMemory": {
+    "category": "Memory",
+    "type": "BUFFER_PE",
+    "idx": 2,
+    "action_verb": "manipulated virtual memory parameters via",
+    "object": "process memory space region"
+  },
+  "GetCursorpos": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Accept": {
+    "type": "SOCKADDR",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Bind": {
+    "type": "SOCKADDR",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "CloseSocket": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Connect": {
+    "type": "SOCKADDR",
+    "idx": 1,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetAddrInfo": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetHostByName": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "GetSockName": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "IoctlSocket": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Listen": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Recv": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Select": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Send": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SendTo": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "SetSockopt": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "Shutdown": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "WsaSend": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  },
+  "WsaStartUp": {
+    "type": "DEFAULT",
+    "idx": 0,
+    "action_verb": "invoked low-level system sub-routine",
+    "object": "operating system kernel subsystem core"
+  }
+}
